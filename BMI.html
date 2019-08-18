@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .wrap {
+            width: 800px;
+            margin: auto;
+            border: 1px solid gray;
+            background-color: gray;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrap">
+        Weight: <input type="text" id="weight"> Height: <input type="text" id="height">
+        <h1 id="total"></h1>
+        <button onclick="bmiCalculator()">Your BMI</button>
+        <div id="bmi">
+
+        </div>
+        <button onclick="up()">+</button>
+        <button onclick="down()">-</button>
+
+    </div>
+
+</body>
+<script>
+    function bmiCalculator() {
+        let weight = document.getElementById('weight').value;
+        let height = document.getElementById('height').value;
+
+        height = Math.pow((height / 100), 2);
+        BMI = Math.floor(weight / height);
+        document.getElementById('total').innerHTML = `Your BMI is ${parseInt(BMI)}`;
+
+    }
+
+    function up(bmiCalculator) {
+        document.getElementById('total').innerHTML = `Your new BMI is "${parseInt(BMI++)}" Loser!`;
+    }
+
+    function down(bmiCalculator) {
+        document.getElementById('total').innerHTML = `Your new BMI is "${parseInt(BMI--)}" feel better now?`;
+    }
+
+    /*function getBMI(weight, height, BMI) {
+        height = Math.pow((height / 100), 2);
+        BMI = Math.floor(weight / height);
+        return BMI
+
+    }
+*/
+
+
+    /*let displayBMI = document.getElementById("bmi");
+    displayBMI.innerHTML = `This is your BMI ${getBMI()}`;*/
+</script>
+
+</html>
